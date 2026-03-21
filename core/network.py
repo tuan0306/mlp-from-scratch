@@ -24,6 +24,6 @@ class Network:
             error=self.loss_prime(y_train,output)
             for layer in reversed(self.layers):
                 error=layer.backward(error,learning_rate)
-            if verbose and (epoch+1)%10==0:
+            if verbose and (epoch+1)%100==0:
                 print(f"Epoch {epoch+1:4d}/{epochs} | Loss: {err:.6f}")
         return history
