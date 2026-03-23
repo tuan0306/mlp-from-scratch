@@ -14,20 +14,21 @@ class Activation(Layer):
         input_error=output_error*self.activation_prime(self.input)
         return input_error
     
+    
+def sigmoid(x):
+    return 1/(1+np.exp(-x))
+def sigmoid_prime(x):
+    s=sigmoid(x)
+    return s*(1-s)
 class Sigmoid(Activation):
     def __init__(self):
-        def sigmoid(x):
-            return 1/(1+np.exp(-x))
-        def sigmoid_prime(x):
-            s=sigmoid(x)
-            return s*(1-s)
         super().__init__(sigmoid,sigmoid_prime)
-            
+
+def relu(x):
+    return np.maximum(x,0)
+def relu_prime(x):
+    return np.where(x>0,1,0)    
 class ReLU(Activation):
     def __init__(self):
-        def relu(x):
-            return np.maximum(x,0)
-        def relu_prime(x):
-            return np.where(x>0,1,0)
         super().__init__(relu,relu_prime)
         
