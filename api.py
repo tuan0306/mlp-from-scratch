@@ -28,7 +28,7 @@ try:
     with open('models/scaler.pkl', 'rb') as f:
         scaler=pickle.load(f)
 except Exception as e:
-    raise RuntimeError(f"Lỗi hệ thống: Không thể nạp file Model hoặc Scaler. Chi tiết: {e}")
+    raise RuntimeError(f"Can not load Model file or Scaler file. Details: {e}")
 
 @app.post('/predict')
 def predict_survival(passenger: PassengerInput):
@@ -46,4 +46,4 @@ def predict_survival(passenger: PassengerInput):
             'prediction_label':'Survived' if survival_class==1 else 'Dead'
         }
     except Exception as e:
-        raise HTTPException(status_code=5000,detail=f"Lỗi xử lý dự đoán: {str(e)}")
+        raise HTTPException(status_code=5000,detail=f"Predicting error: {str(e)}")
