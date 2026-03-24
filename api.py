@@ -23,7 +23,7 @@ class PassengerInput(BaseModel):
     Embarked: str
     
 try:
-    with open('../models/titanic_best_model.pkl','rb') as f:
+    with open('models/titanic_best_model.pkl','rb') as f:
         ai_model=pickle.load(f)
     with open('models/scaler.pkl', 'rb') as f:
         scaler=pickle.load(f)
@@ -35,8 +35,10 @@ def predict_survival(passenger: PassengerInput):
     try:
         raw_data=passenger.dict()
         final_features=preprocess_user_input(raw_data,scaler)
-        survival_prob=float(ai_model.predict(final_features)[0][0])
-        survival_class=prob_to_class(survival_prob)
+        raw_prediction=ai_model.predict(final_features)
+        survival_prob=raw_prediction.item()
+        
+        survival_class=1 if survival_prob >= 0.5 else 0
         return {
             'status':'succes',
             'prediction_class':survival_class,
