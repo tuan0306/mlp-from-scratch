@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Azure VM
-      uses: apple/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          cd ~/mlp_from_scratch
-          git pull origin main
-          sudo docker compose up -d --build
-          sudo docker image prune -f
+        uses: apple/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd ~/mlp_from_scratch
+            git pull origin main
+            sudo docker compose up -d --build
+            sudo docker image prune -f
