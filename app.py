@@ -35,7 +35,7 @@ if st.button("🔮 TIẾN HÀNH DỰ ĐOÁN PHÁN QUYẾT", use_container_width=
                 st.info(f"📊 Tỷ lệ sinh tồn: **{survival_prob * 100:.2f}%**")
                 st.balloons()
             else:
-                st.error("💀 **RẤT TIẾC... BẠN ĐÃ CHÌM CÙNG CON TÀU!**")
+                st.error("💀 **RẤT TIẾC.... BẠN ĐÃ CHÌM CÙNG CON TÀU!**")
                 st.warning(f"📊 Cơ hội sống sót: **{survival_prob * 100:.2f}%**")
         except requests.exceptions.ConnectionError:
             st.error("🚨 Lỗi kết nối: Không thể gọi đến AI Server. Vui lòng kiểm tra xem FastAPI (uvicorn) đã được bật chưa!")
