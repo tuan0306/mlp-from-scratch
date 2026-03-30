@@ -134,6 +134,38 @@ Use this method if you want to run the project locally without Docker.
 
 ---
 
+## 📊 Model Performance & Kaggle Results
+
+The model was evaluated using the **Titanic - Machine Learning from Disaster** dataset on Kaggle. Since the architecture was built entirely from scratch (NumPy only), these results demonstrate the mathematical correctness of the backpropagation and optimization algorithms.
+
+### 1. Model Configuration
+To achieve the best balance between bias and variance, the following hyperparameters were selected:
+
+| Parameter | Value |
+| :--- | :--- |
+| **Architecture** | Input (8) → Hidden (16, ReLU) → Hidden (8, ReLU) → Output (1, Sigmoid) |
+| **Optimizer** | Stochastic Gradient Descent (SGD) with Momentum |
+| **Loss Function** | Binary Cross-Entropy |
+| **Learning Rate** | 0.05 (with decay) |
+| **Epochs** | 1000 |
+
+### 2. Training Metrics
+The training process showed stable convergence, proving the efficacy of the custom-built gradient descent implementation.
+
+* **Validation Accuracy (70/30/30 Split):** ~85.1%
+* **Test Accuracy (70/30/30 Split):** ~79.85%
+* **Test Precision:** 0.8
+* **Test Precision:** ~0.63
+* **Test F1-Score:** ~0.7
+
+### 3. Kaggle Submission Results
+The generated `submission.csv` was uploaded to the Kaggle Leaderboard:
+
+* **Public Score:** **0.76794**
+* **Status:** Successfully predicted survival for 418 passengers in the test set.
+
+---
+
 ## 👨‍💻 Author
 **Nguyễn Đình Tuấn**
 * **Github Profile:** [https://github.com/tuan0306](https://github.com/tuan0306) 
