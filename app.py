@@ -8,7 +8,7 @@ st.set_page_config(page_title="Titanic AI Predictor", page_icon="🚢", layout="
 st.title("🚢 Ứng dụng AI Dự đoán Sinh/Tử Tàu Titanic")
 
 
-st.sidebar.header("📝 Nhập thông tin của bạn:")
+st.sidebar.header("📝 Nhập các thông tin của bạn:")
 
 raw_input = {
     'Pclass': st.sidebar.selectbox("Hạng vé (Pclass):", [1, 2, 3], format_func=lambda x: f"Hạng {x}"),
