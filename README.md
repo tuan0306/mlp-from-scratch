@@ -75,7 +75,7 @@ mlp-from-scratch/
 ├── app.py                     # Streamlit Frontend (User Interface)
 ├── docker-compose.yml         # Multi-container orchestration
 ├── Dockerfile                 # Docker image blueprint for the environment
-├── README.md                  # Project documentation (You are here)
+├── README.md                  # Project documentation
 ├── requirements.txt           # Python dependencies
 └── submission.csv             # Final predictions for Kaggle submission
 ```
